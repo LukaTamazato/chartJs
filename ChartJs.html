@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando chartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex;">
+
+    <div>
+        <canvas id = "myChart" style="position:relative; height:50vh; width:50vw;"></canvas>       
+    </div>
+    <div>
+        <canvas id = "myChart2"style="position:relative; height:50vh; width:50vw;"></canvas>
+    </div>
+</body>
+</html>
+<script>
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['11/10.20:20', '11/10.20:30', '12/10.10:50', '12/10.11:00', '13/10.11:20', '13/10.11:30'],
+        datasets: [{
+          label: 'Temperatura nas colmeias',
+          data: [3, 15, 16, 20, 23, 30],
+          backgroundColor: 'rgb(255, 205, 86)',
+          borderColor: 'rgb(255, 205, 86)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales:{
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+    const ctx1 = document.getElementById('myChart2');
+
+
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: ['11/10.20:20', '11/10.20:30', '12/10.10:50', '12/10.11:00', '13/10.11:20', '13/10.11:30'],
+        datasets: [{
+          label: 'Umidade nas colmeias',
+          data: [50, 55, 53, 60, 54, 53],
+          backgroundColor: '#000',
+          borderColor: '#000',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: false
+          }
+        }
+      }
+    });
+  </script>
